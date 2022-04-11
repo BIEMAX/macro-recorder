@@ -49,21 +49,27 @@
             // 
             // recordStart
             // 
+            this.recordStart.Image = global::macro_recorder.Properties.Resources.icons8_último_16;
+            this.recordStart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.recordStart.Location = new System.Drawing.Point(19, 28);
             this.recordStart.Name = "recordStart";
             this.recordStart.Size = new System.Drawing.Size(101, 23);
             this.recordStart.TabIndex = 0;
             this.recordStart.Text = "Start recorder";
+            this.recordStart.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.recordStart.UseVisualStyleBackColor = true;
             this.recordStart.Click += new System.EventHandler(this.recordStartButton_Click);
             // 
             // recordStopButton
             // 
+            this.recordStopButton.Image = global::macro_recorder.Properties.Resources.icons8_parar_16;
+            this.recordStopButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.recordStopButton.Location = new System.Drawing.Point(19, 71);
             this.recordStopButton.Name = "recordStopButton";
             this.recordStopButton.Size = new System.Drawing.Size(101, 23);
             this.recordStopButton.TabIndex = 1;
             this.recordStopButton.Text = "Stop recorder";
+            this.recordStopButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.recordStopButton.UseVisualStyleBackColor = true;
             this.recordStopButton.Click += new System.EventHandler(this.recordStopButton_Click);
             // 
@@ -136,11 +142,14 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button1.Image = global::macro_recorder.Properties.Resources.icons8_próximo_16;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(19, 173);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 23);
+            this.button1.Size = new System.Drawing.Size(101, 23);
             this.button1.TabIndex = 0;
             this.button1.Text = "Play Back";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = true;
             // 
             // label3
