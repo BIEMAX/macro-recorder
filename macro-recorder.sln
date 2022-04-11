@@ -5,6 +5,8 @@ VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "macro-recorder", "macro-recorder\macro-recorder.csproj", "{76236062-17F9-48C2-B145-1DE757F73A7F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyboardMouseHook", "KeyboardMouseHook\KeyboardMouseHook.csproj", "{1F1E4795-FBDA-480F-997D-951C119D260C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{76236062-17F9-48C2-B145-1DE757F73A7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76236062-17F9-48C2-B145-1DE757F73A7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76236062-17F9-48C2-B145-1DE757F73A7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F1E4795-FBDA-480F-997D-951C119D260C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F1E4795-FBDA-480F-997D-951C119D260C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F1E4795-FBDA-480F-997D-951C119D260C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F1E4795-FBDA-480F-997D-951C119D260C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
