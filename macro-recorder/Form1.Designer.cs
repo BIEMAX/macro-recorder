@@ -31,16 +31,16 @@
             this.recordStart = new System.Windows.Forms.Button();
             this.recordStopButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtKeyStop = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtKeyStart = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.button1 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -78,9 +78,9 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txtKeyStop);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtKeyStart);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.recordStart);
             this.groupBox1.Controls.Add(this.recordStopButton);
@@ -90,6 +90,44 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Macro recorder";
+            // 
+            // txtKeyStop
+            // 
+            this.txtKeyStop.Location = new System.Drawing.Point(139, 72);
+            this.txtKeyStop.Name = "txtKeyStop";
+            this.txtKeyStop.Size = new System.Drawing.Size(165, 23);
+            this.txtKeyStop.TabIndex = 5;
+            this.txtKeyStop.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtKeyStop.TextChanged += new System.EventHandler(this.txtKeyStop_TextChanged);
+            this.txtKeyStop.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtKeyStop_KeyDown);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(139, 54);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(146, 15);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Shortcut to stop recording";
+            // 
+            // txtKeyStart
+            // 
+            this.txtKeyStart.Location = new System.Drawing.Point(139, 28);
+            this.txtKeyStart.Name = "txtKeyStart";
+            this.txtKeyStart.Size = new System.Drawing.Size(165, 23);
+            this.txtKeyStart.TabIndex = 3;
+            this.txtKeyStart.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtKeyStart.TextChanged += new System.EventHandler(this.txtKeyStart_TextChanged);
+            this.txtKeyStart.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtKeyStart_KeyDown);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(139, 10);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(146, 15);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Shortcut to start recording";
             // 
             // groupBox2
             // 
@@ -152,38 +190,6 @@
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(139, 10);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(146, 15);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Shortcut to start recording";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(139, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(165, 23);
-            this.textBox1.TabIndex = 3;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(139, 72);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(165, 23);
-            this.textBox2.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(139, 54);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(146, 15);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Shortcut to stop recording";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -216,9 +222,9 @@
         private Button button1;
         private Label label2;
         private NumericUpDown numericUpDown2;
-        private TextBox textBox2;
+        private TextBox txtKeyStop;
         private Label label4;
-        private TextBox textBox1;
+        private TextBox txtKeyStart;
         private Label label3;
     }
 }

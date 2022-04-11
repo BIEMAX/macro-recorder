@@ -42,13 +42,41 @@ namespace macro_recorder
             keyboardHook.KeyUp += new KeyEventHandler(keyboardHook_KeyUp);
         }
 
+        /// <summary>
+        /// Get the KeyValue integer and translate to char
+        /// </summary>
+        /// <param name="e"></param>
+        /// <returns></returns>
+        private char getChar(KeyEventArgs e)
+        {
+            int keyValue = e.KeyValue;
+            if (!e.Shift && keyValue >= (int)Keys.A && keyValue <= (int)Keys.Z)
+                return (char)(keyValue + 32);
+            return (char)keyValue;
+        }
+
+        /// <summary>
+        /// Replace multiple matches from a single string
+        /// </summary>
+        /// <param name="originalString"></param>
+        /// <returns></returns>
+        private String MultipleReplacement(String originalString)
+        {
+            var replacements = new Dictionary<string, string> { { "¹", " " }, { "²", " " }, { "³", " " } };
+            return replacements.Aggregate(originalString, (current, replacement) => current.Replace(replacement.Key, replacement.Value)).Trim();
+        }
+
+        private Boolean IsKeyBindingNew()
+        {
+            return txtKeyStart.Text.ToUpper().Trim() == txtKeyStop.Text.ToUpper().Trim();
+        }
+
         #endregion
 
         #region Events
 
         void mouseHook_MouseMove(object sender, MouseEventArgs e)
         {
-
             _events.Add(
                 new MacroEvent(
                     MacroEventType.MouseMove,
@@ -57,12 +85,10 @@ namespace macro_recorder
                 ));
 
             _lastTimeRecorded = Environment.TickCount;
-
         }
 
         void mouseHook_MouseDown(object sender, MouseEventArgs e)
         {
-
             _events.Add(
                 new MacroEvent(
                     MacroEventType.MouseDown,
@@ -71,12 +97,10 @@ namespace macro_recorder
                 ));
 
             _lastTimeRecorded = Environment.TickCount;
-
         }
 
         void mouseHook_MouseUp(object sender, MouseEventArgs e)
         {
-
             _events.Add(
                 new MacroEvent(
                     MacroEventType.MouseUp,
@@ -85,12 +109,10 @@ namespace macro_recorder
                 ));
 
             _lastTimeRecorded = Environment.TickCount;
-
         }
 
         void keyboardHook_KeyDown(object sender, KeyEventArgs e)
         {
-
             _events.Add(
                 new MacroEvent(
                     MacroEventType.KeyDown,
@@ -99,12 +121,10 @@ namespace macro_recorder
                 ));
 
             _lastTimeRecorded = Environment.TickCount;
-
         }
 
         void keyboardHook_KeyUp(object sender, KeyEventArgs e)
         {
-
             _events.Add(
                 new MacroEvent(
                     MacroEventType.KeyUp,
@@ -113,27 +133,22 @@ namespace macro_recorder
                 ));
 
             _lastTimeRecorded = Environment.TickCount;
-
         }
 
         private void recordStartButton_Click(object sender, EventArgs e)
         {
-
             _events.Clear();
             _lastTimeRecorded = Environment.TickCount;
 
             keyboardHook.Start();
             mouseHook.Start();
-
         }
 
 
         private void recordStopButton_Click(object sender, EventArgs e)
         {
-
             keyboardHook.Stop();
             mouseHook.Stop();
-
         }
 
         private void playBackMacroButton_Click(object sender, EventArgs e)
@@ -181,6 +196,45 @@ namespace macro_recorder
 
             }
 
+        }
+
+        private void txtKeyStart_KeyDown(object sender, KeyEventArgs e)
+        {
+            txtKeyStart.Text = $"{ModifierKeys.ToString().Trim().Replace(",", " + ")} +{getChar(e)}";
+            e.Handled = true;
+            this.CheckKeyBindings();
+        }
+
+        private void CheckKeyBindings()
+        {
+            if (txtKeyStart.Text != String.Empty &&
+                txtKeyStop.Text != String.Empty &&
+                this.IsKeyBindingNew())
+            {
+                MessageBox.Show(
+                    "Key binding defined already has been selected/defined. Please, choice other key binding",
+                    "Duplicate key binding",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation
+                );
+            }
+        }
+
+        private void txtKeyStart_TextChanged(object sender, EventArgs e)
+        {
+            txtKeyStart.Text = MultipleReplacement(txtKeyStart.Text);
+        }
+
+        private void txtKeyStop_KeyDown(object sender, KeyEventArgs e)
+        {
+            txtKeyStop.Text = $"{ModifierKeys.ToString().Trim().Replace(",", " + ")} +{getChar(e)}";
+            e.Handled = true;
+            this.CheckKeyBindings();
+        }
+
+        private void txtKeyStop_TextChanged(object sender, EventArgs e)
+        {
+            txtKeyStop.Text = MultipleReplacement(txtKeyStop.Text);
         }
 
         #endregion
