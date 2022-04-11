@@ -46,20 +46,6 @@ namespace macro_recorder
 
         #region Events
 
-        private void btnRecord_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                _recordStart = _recordStart == false ? true : false;
-                btnRecord.Text = _recordStart ? "Stop recorder" : "Start Recorder";
-                
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.StackTrace, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         void mouseHook_MouseMove(object sender, MouseEventArgs e)
         {
 
