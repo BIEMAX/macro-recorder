@@ -12,6 +12,8 @@ About *Pet work*
 > 
 > Chose the method (*gold or silver*) for buying food and the pet's work time.
 
+![https://github.com/BIEMAX/macro-recorder/blob/master/images/imagem_2022-04-11_113717750.png](https://github.com/BIEMAX/macro-recorder/blob/master/images/imagem_2022-04-11_113717750.png)
+
 ## Technologies used
 
 - Microsoft .NET 6.0 LTS
